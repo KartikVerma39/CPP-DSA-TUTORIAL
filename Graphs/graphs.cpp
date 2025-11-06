@@ -273,3 +273,106 @@
 //     cout<<"The BFS of the graph is : "<<endl;
 //     g.BFS(0);
 // }
+
+
+// DFS in C++
+
+
+// #include<iostream>
+// #include<vector>
+// using namespace std;
+// class Graph{
+//     int vertices;
+//     vector<vector<int>>adj;
+
+//     public:
+//     Graph(int v){
+//         vertices = v;
+//         adj.resize(v);
+//     }
+
+//     void addEdge(int u , int v){
+//         adj[u].push_back(v);
+//         adj[v].push_back(u);
+//     }
+
+//     void printDFS(vector<bool>&visited , int start){
+//         visited[start] = true;
+//         cout<<start<<" ";
+        
+//         for(auto it : adj[start]){
+//             if(!visited[it]){
+//                 printDFS(visited , it);
+//             }
+//         }
+//     }
+
+
+//     void DFS(int start){
+//         vector<bool>visited(vertices , false);
+//         printDFS(visited , start);
+//     }
+
+// };
+// int main(){
+//     Graph g(6);   // we have 6 nodes: 0,1,2,3,4,5
+
+//     g.addEdge(0, 1);
+//     g.addEdge(0, 2);
+//     g.addEdge(1, 3);
+//     g.addEdge(1, 4);
+//     g.addEdge(2, 5);
+
+//     cout << "DFS Traversal starting from node 0 : ";
+//     g.DFS(0);
+// }
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+class Graph{
+    int vertices;
+    vector<vector<int>>adj;
+
+    public:
+    Graph(int v){
+        vertices = v;
+        adj.resize(v);
+    }
+
+    void addEdge(int u , int v){
+        adj[u].push_back(v);
+        adj[v].push_back(u);      
+    }
+
+
+    void printDFS(vector<bool>visited , int start){
+        visited[start] = true;
+        cout<<start<<" ";
+        for(auto it: adj[start]){
+            if(!visited[it]){
+                printDFS(visited , it);
+            }
+        }
+    }
+
+
+    void DFS(int start){
+        vector<bool>visited(vertices , false);
+        printDFS(visited , start);
+    }
+
+};
+int main(){
+    Graph g(6);   // we have 6 nodes: 0,1,2,3,4,5
+
+    g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(1, 3);
+    g.addEdge(1, 4);
+    g.addEdge(2, 5);
+
+    cout << "DFS Traversal starting from node 0 : ";
+    g.DFS(0);
+}
