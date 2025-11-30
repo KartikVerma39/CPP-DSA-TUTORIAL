@@ -42,7 +42,7 @@ int main(){
     for(int i = 0 ; i < size ; i++){
         cin>>arr[i];
     }
-
+ 
     for(int i = size - 1 ; i >= 1 ; i--){
         int check = 0;
         for(int j = 0 ; j <= i-1 ; j++){
