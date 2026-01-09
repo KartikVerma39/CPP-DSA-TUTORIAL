@@ -45,28 +45,28 @@
 
 
 
-Node* deleteGreater(Node* head, int X) {
-    // Step 1: Remove nodes from the beginning if they are > X
-    while (head != NULL && head->data > X) {
-        Node* temp = head;
-        head = head->next;
-        delete temp;
-    }
+// Node* deleteGreater(Node* head, int X) {
+//     // Step 1: Remove nodes from the beginning if they are > X
+//     while (head != NULL && head->data > X) {
+//         Node* temp = head;
+//         head = head->next;
+//         delete temp;
+//     }
 
-    // If list becomes empty
-    if (head == NULL) return NULL;
+//     // If list becomes empty
+//     if (head == NULL) return NULL;
 
-    // Step 2: Remove nodes from the rest of the list
-    Node* curr = head;
-    while (curr != NULL && curr->next != NULL) {
-        if (curr->next->data > X) {
-            Node* temp = curr->next;
-            curr->next = curr->next->next;
-            delete temp;
-        } else {
-            curr = curr->next;
-        }
-    }
+//     // Step 2: Remove nodes from the rest of the list
+//     Node* curr = head;
+//     while (curr != NULL && curr->next != NULL) {
+//         if (curr->next->data > X) {
+//             Node* temp = curr->next;
+//             curr->next = curr->next->next;
+//             delete temp;
+//         } else {
+//             curr = curr->next;
+//         }
+//     }
 
-    return head;
-}
+//     return head;
+// }
